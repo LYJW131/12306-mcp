@@ -13,7 +13,10 @@
     "prepare": "npm run build",
     "test": "tsc && node ./build/index.js",
     "test:http": "tsc && node ./build/index.js --port 8080",
-    "debug": "tsc && npx @modelcontextprotocol/inspector node ./build/index.js"
+    "debug": "tsc && npx @modelcontextprotocol/inspector node ./build/index.js",
+    "dev:worker": "wrangler dev",
+    "deploy:worker": "wrangler deploy",
+    "typecheck:worker": "tsc -p tsconfig.worker.json"
   },
   "keywords": [
     "mcp",
@@ -25,7 +28,6 @@
   "description": "This is a 12306 ticket search server based on the Model Context Protocol (MCP). ",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "axios": "^1.19.0",
     "commander": "^14.0.3",
     "date-fns": "^4.4.0",
     "date-fns-tz": "^3.2.0",
@@ -36,7 +38,8 @@
     "@modelcontextprotocol/inspector": "^2.0.0",
     "@types/node": "^22.20.1",
     "run-script-os": "^1.1.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.147.0"
   },
   "overrides": {
     "mcp-http-server": {
